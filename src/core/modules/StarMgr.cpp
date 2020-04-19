@@ -26,7 +26,6 @@
 #include "StelObject.hpp"
 #include "StelTexture.hpp"
 
-#include "StelUtils.hpp"
 #include "StelToneReproducer.hpp"
 #include "StelTranslator.hpp"
 #include "StelGeodesicGrid.hpp"
@@ -445,7 +444,7 @@ void StarMgr::init()
 
 	// Load colors from config file
 	QString defaultColor = conf->value("color/default_color").toString();
-	setLabelColor(StelUtils::strToVec3f(conf->value("color/star_label_color", defaultColor).toString()));
+	setLabelColor(Vec3f(conf->value("color/star_label_color", defaultColor).toString()));
 
 	objectMgr->registerStelObjectMgr(this);
 	texPointer = StelApp::getInstance().getTextureManager().createTexture(StelFileMgr::getInstallationDir()+"/textures/pointeur2.png");   // Load pointer texture
